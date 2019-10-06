@@ -9,13 +9,11 @@ export const LanguageContext = createContext({
 });
 
 export const LanguageProvider = ({ children }) => {
-  const [lang, setLang] = useState(
-    window.localStorage.getItem('CryptoLang') || window.navigator.language // read-only user browser's language
-  );
+  const [lang, setLang] = useState(window.localStorage.getItem('lang') || 'en');
 
   const switchLang = language => {
     setLang(language);
-    window.localStorage.setItem('CryptoLang', language);
+    window.localStorage.setItem('lang', language);
   };
 
   return (

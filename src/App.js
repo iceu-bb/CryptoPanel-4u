@@ -1,24 +1,16 @@
-import React, { useContext } from 'react';
-
-import { LanguageContext } from './context/LanguageContext';
-import { ThemeToggleContext } from './context/ThemeContext';
-
+import React from 'react';
 import GlobalStyle from './GlobalStyle';
 import LangSwitch from './components/SwitchLanguage';
+import TogglePanel from './components/TogglePanel';
+import Header from './components/Header';
 
 const App = () => {
-  const {
-    currentLangData: { app }
-  } = useContext(LanguageContext);
-
-  const themeToggle = useContext(ThemeToggleContext);
-
   return (
     <div>
       <GlobalStyle />
       <LangSwitch />
-      <button onClick={() => themeToggle.toggle()}> Switch Theme</button>
-      <h1>{app.h1}</h1>
+      <TogglePanel />
+      <Header />
     </div>
   );
 };
