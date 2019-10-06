@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { LanguageContext } from './context/LanguageContext';
+
+import LangSwitch from './components/SwitchLanguage';
 
 const App = () => {
-  return <div>hello</div>;
+  const {
+    currentLangData: { app }
+  } = useContext(LanguageContext);
+
+  return (
+    <div>
+      <LangSwitch />
+      <h1>{app.h1}</h1>
+    </div>
+  );
 };
 
 export default App;
