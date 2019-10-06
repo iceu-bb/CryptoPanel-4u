@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, createContext } from 'react';
+import React, { useState, createContext } from 'react';
 
 import langData from '../data/languageData';
 
@@ -12,13 +12,6 @@ export const LanguageProvider = ({ children }) => {
   const [lang, setLang] = useState(
     window.localStorage.getItem('CryptoLang') || window.navigator.language // read-only user browser's language
   );
-
-  useLayoutEffect(() => {
-    const selectedLang = window.localStorage.getItem('CryptoLang');
-    if (selectedLang) {
-      setLang(selectedLang);
-    }
-  }, [lang]);
 
   const switchLang = language => {
     setLang(language);
