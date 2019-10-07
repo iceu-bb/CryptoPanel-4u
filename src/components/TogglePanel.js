@@ -14,8 +14,8 @@ const TogglePanel = () => {
     <Toggle
       defaultChecked={Boolean(mode)}
       icons={{
-        checked: <FaSun />,
-        unchecked: <FaMoon />
+        checked: <FaMoon />,
+        unchecked: <FaSun />
       }}
       onChange={themeToggle}
     />
