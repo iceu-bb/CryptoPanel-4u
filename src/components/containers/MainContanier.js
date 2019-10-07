@@ -4,6 +4,7 @@ import { getCoinList } from '../../services/cryptoApi';
 import LangSwitch from '../SwitchLanguage';
 import TogglePanel from '../TogglePanel';
 import Header from '../Header';
+import CoinItem from '../CoinItem';
 
 const MainContanier = () => {
   const [coins, setCoins] = useState([]);
@@ -17,9 +18,11 @@ const MainContanier = () => {
       <LangSwitch />
       <TogglePanel />
       <Header />
-      {coins.map(el => (
-        <h3>{el.CoinInfo.FullName}</h3>
-      ))}
+
+      {coins &&
+        coins.map((coin, index) => (
+          <CoinItem coin={coin} key={coin.CoinInfo.Id} index={index} />
+        ))}
     </section>
   );
 };
