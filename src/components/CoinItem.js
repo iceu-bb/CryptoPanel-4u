@@ -3,7 +3,8 @@ import {
   CoinItemContainer,
   Image,
   CoinName,
-  CoinChange
+  CoinChange,
+  MarketCap
 } from '../styles/CoinItemStyles';
 
 const CoinItem = ({ coin, index }) => {
@@ -21,7 +22,7 @@ const CoinItem = ({ coin, index }) => {
         {FullName}
       </CoinName>
       <span>{PRICE}</span>
-      <span>$ {MKTCAP.toFixed(0)}</span>
+      <MarketCap>$ {MKTCAP.toFixed(0)}</MarketCap>
       <CoinChange green={CHANGEPCT24HOUR >= 0 ? true : false}>
         {CHANGEPCT24HOUR} %
       </CoinChange>
