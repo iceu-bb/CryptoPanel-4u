@@ -2,9 +2,13 @@ import React, { useContext } from 'react';
 import { LanguageContext } from '../context/LanguageContext';
 import {
   Image,
-  CoinContainer,
+  CoinInfoContainer,
   H2,
-  StatisticsItem
+  StatisticsItem,
+  StatisticsContainer,
+  Thin,
+  Bold,
+  Percentage
 } from '../styles/CoinDashboardStyles';
 
 const CoinDashboard = ({ coin, name }) => {
@@ -13,7 +17,7 @@ const CoinDashboard = ({ coin, name }) => {
     HIGH24HOUR,
     LOW24HOUR,
     CHANGEPCT24HOUR,
-    CHANGE24HOUR,
+
     IMAGEURL
   } = coin;
 
@@ -21,26 +25,32 @@ const CoinDashboard = ({ coin, name }) => {
 
   return (
     <div>
-      <CoinContainer>
-        <Image
-          src={`https://www.cryptocompare.com${IMAGEURL}`}
-          alt={`${name} image`}
-        />
-        {name}
-      </CoinContainer>
-      <H2>{name} Statistics</H2>
-      <StatisticsItem>
-        {coinDashboard.price}: {PRICE}
-      </StatisticsItem>
-      <StatisticsItem>
-        {coinDashboard.highest24h}: {HIGH24HOUR}
-      </StatisticsItem>
-      <StatisticsItem>
-        {coinDashboard.lowest24h}: {LOW24HOUR}
-      </StatisticsItem>
-      <StatisticsItem>
-        {coinDashboard.change}: {CHANGE24HOUR}USD {CHANGEPCT24HOUR}%{' '}
-      </StatisticsItem>
+      <CoinInfoContainer>
+        <div>
+          <Image
+            src={`https://www.cryptocompare.com${IMAGEURL}`}
+            alt={`${name} image`}
+          />
+        </div>
+        <StatisticsContainer>
+          <H2>{name} Statistics</H2>
+          <StatisticsItem>
+            <Thin>{coinDashboard.price}:</Thin>
+            <Bold>{PRICE}</Bold>
+            <Percentage green={CHANGEPCT24HOUR >= 0 ? true : false}>
+              ({CHANGEPCT24HOUR}%)
+            </Percentage>
+          </StatisticsItem>
+          <StatisticsItem>
+            <Thin>{coinDashboard.highest24h}:</Thin>
+            <Bold>{HIGH24HOUR}</Bold>
+          </StatisticsItem>
+          <StatisticsItem>
+            <Thin>{coinDashboard.lowest24h}: </Thin>
+            <Bold>{LOW24HOUR}</Bold>
+          </StatisticsItem>
+        </StatisticsContainer>
+      </CoinInfoContainer>
     </div>
   );
 };

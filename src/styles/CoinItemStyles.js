@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { borderColor } from '../data/theme';
+import { Link } from '@reach/router';
 
 export const CoinItemContainer = styled.article`
   padding: 25px;
@@ -16,16 +17,34 @@ export const CoinItemContainer = styled.article`
   }
 `;
 
+export const CoinName = styled.span`
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+`;
+
 export const Image = styled.img`
   display: inline-block;
   margin-right: 10px;
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
+  @media (max-width: 600px) {
+    align-self: flex-start;
+  }
 `;
 
-export const CoinName = styled.span`
-  font-size: 2rem;
-  font-weight: bold;
+export const StyledLink = styled(Link)`
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  will-change: opacity;
+  border-bottom: 2px solid transparent;
+
+  &:hover {
+    opacity: 0.85;
+    border-bottom: 2px solid;
+  }
 `;
 
 export const CoinChange = styled.span`

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
+import { Wrapper } from '../styles/ChartStyles';
 
 const ChartsPanel = ({ data, name }) => {
   /*----------- calculations -----------*/
@@ -12,10 +13,13 @@ const ChartsPanel = ({ data, name }) => {
 
   /*----------- chart options -----------*/
   const chartOptions = {
+    maintainAspectRatio: false,
     title: {
       display: true,
-      text: `${name} charts`,
-      fontSize: 25
+      text: `${name} price chart`,
+      fontSize: 22,
+      fontColor: '#76dbd1',
+      lineHeight: 4
     },
     legend: {
       display: false,
@@ -29,7 +33,7 @@ const ChartsPanel = ({ data, name }) => {
       bodyFontSize: 14,
       callbacks: {
         title: function(tooltipItem, data) {
-          // Get current value and convert it wit toLocaleString
+          // Get current value and convert it with toLocaleString
           const value = data.labels[tooltipItem[0].index];
           return new Date(value * 1000).toLocaleString();
         }
@@ -52,9 +56,8 @@ const ChartsPanel = ({ data, name }) => {
                   });
             },
             maxTicksLimit: 12,
-            maxRotation: 0,
-            minRotation: 0,
-            lineHeight: 4
+            lineHeight: 5,
+            padding: 7
           }
         }
       ],
@@ -87,7 +90,6 @@ const ChartsPanel = ({ data, name }) => {
         borderDashOffset: 0.0,
         borderJoinStyle: 'miter',
         pointBorderColor: 'rgba(75,192,192,1)',
-        pointBackgroundColor: '#fff',
         pointBorderWidth: 1,
         pointHoverRadius: 5,
         pointHoverBackgroundColor: 'rgba(75,192,192,1)',
@@ -102,9 +104,9 @@ const ChartsPanel = ({ data, name }) => {
 
   /*----------- return statement -----------*/
   return (
-    <div>
+    <Wrapper>
       <Line options={chartOptions} data={chartData} />
-    </div>
+    </Wrapper>
   );
 };
 

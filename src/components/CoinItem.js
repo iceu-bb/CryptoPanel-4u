@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from '@reach/router';
 import {
   CoinItemContainer,
   Image,
+  StyledLink,
   CoinName,
   CoinChange,
   MarketCap
@@ -20,7 +20,7 @@ const CoinItem = ({ coin, index }) => {
           src={`https://www.cryptocompare.com${ImageUrl}`}
           alt={`${FullName} image`}
         />
-        {<Link to={`/coin/${Name}`}>{FullName}</Link>}
+        {<StyledLink to={`/coin/${Name}`}>{FullName}</StyledLink>}
       </CoinName>
       <span>{PRICE}</span>
       <MarketCap>$ {MKTCAP.toFixed(0)}</MarketCap>

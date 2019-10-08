@@ -3,6 +3,8 @@ import { backgroundColor, fontColor } from './data/theme';
 
 const GlobalStyle = createGlobalStyle`
     html {
+        max-width:100vw;
+        overflow-x: hidden;
         font-size: 62.5%;
     }
 
@@ -12,6 +14,8 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
     body {
+        max-width:100vw;
+        overflow-x: hidden;
         min-height: 100vh;
         width: 100vw;
         color: ${fontColor};
