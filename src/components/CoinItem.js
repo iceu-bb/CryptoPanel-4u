@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from '@reach/router';
 import {
   CoinItemContainer,
   Image,
@@ -8,7 +9,7 @@ import {
 } from '../styles/CoinItemStyles';
 
 const CoinItem = ({ coin, index }) => {
-  const { FullName, ImageUrl } = coin.CoinInfo;
+  const { Name, FullName, ImageUrl } = coin.CoinInfo;
   const { MKTCAP } = coin.RAW.USD;
   const { PRICE, CHANGEPCT24HOUR } = coin.DISPLAY.USD;
   return (
@@ -19,7 +20,7 @@ const CoinItem = ({ coin, index }) => {
           src={`https://www.cryptocompare.com${ImageUrl}`}
           alt={`${FullName} image`}
         />
-        {FullName}
+        {<Link to={`/coin/${Name}`}>{FullName}</Link>}
       </CoinName>
       <span>{PRICE}</span>
       <MarketCap>$ {MKTCAP.toFixed(0)}</MarketCap>

@@ -1,15 +1,14 @@
 import styled from 'styled-components';
+import { borderColor } from '../data/theme';
 
 export const CoinItemContainer = styled.article`
-  max-width: 1000px;
-  margin: 0 auto;
   padding: 25px;
   font-size: 1.8rem;
   display: grid;
   justify-content: center;
   grid-template-columns: 40px 2fr 2fr 2fr 1fr;
   grid-column-gap: 10px;
-  border-bottom: 0.5px solid #ddd;
+  border-bottom: 0.5px solid ${borderColor};
   @media (max-width: 600px) {
     max-width: 100vw;
     grid-template-columns: 20px 4fr 3fr 2fr;

@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { backgroundColor } from './data/theme';
+import { backgroundColor, fontColor } from './data/theme';
 
 const GlobalStyle = createGlobalStyle`
     html {
@@ -14,8 +14,15 @@ const GlobalStyle = createGlobalStyle`
     body {
         min-height: 100vh;
         width: 100vw;
+        color: ${fontColor};
         background-color: ${backgroundColor};
         font-family: 'Helvetica Neue',
+
+    }
+
+    main {
+        margin: 0 auto;
+        max-width: 1000px;
     }
 
 `;

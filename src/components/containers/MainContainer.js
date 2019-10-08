@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { getCoinList } from '../../services/cryptoApi';
-
 import useInfiniteScroll from '../../hooks/useInfiniteScroll';
 
 import LangSwitch from '../SwitchLanguage';
@@ -13,14 +12,14 @@ const MainContanier = () => {
 
   const handleFetch = async page => {
     const results = await getCoinList(page).then(({ Data }) => Data);
-    setCoins([...coins, ...results]);
+    coins && setCoins([...coins, ...results]);
     setIsFetching(false);
   };
 
   const [page, isFetching, setIsFetching] = useInfiniteScroll(handleFetch);
 
   useEffect(() => {
-    getCoinList(0).then(({ Data }) => setCoins(Data));
+    !coins && getCoinList(0).then(({ Data }) => setCoins(Data));
   }, []);
 
   return (
