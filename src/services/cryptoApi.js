@@ -15,3 +15,15 @@ export const getCoinData = async (coin = 'BTC', currency = 'USD') => {
   const result = await axios.get(`${coinDataUrl}`).then(({ data }) => data);
   return result;
 };
+
+export const getHistoData = async (
+  coin = 'BTC',
+  aggregate = 30,
+  period = 'day',
+  limit = 100
+) => {
+  const histoDataUrl = `${baseUrl}v2/histo${period}?fsym=${coin}&tsym=USD&limit=${limit}&aggregate=${aggregate}&api_key=${process.env.API_KEY}`;
+
+  const result = await axios.get(`${histoDataUrl}`).then(({ data }) => data);
+  return result;
+};
