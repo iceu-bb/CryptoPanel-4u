@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { debounce } from '../helpers/debounce';
 
 const useInfiniteScroll = callback => {
   const [isFetching, setIsFetching] = useState(false);
@@ -16,7 +17,7 @@ const useInfiniteScroll = callback => {
     setPage(page + 1);
   }, [isFetching]);
 
-  const handleScroll = () => {
+  const handleScroll = debounce(() => {
     if (
       window.innerHeight + document.documentElement.scrollTop <
         document.documentElement.offsetHeight - 50 ||
@@ -24,7 +25,7 @@ const useInfiniteScroll = callback => {
     )
       return;
     setIsFetching(true);
-  };
+  });
 
   return [page, isFetching, setIsFetching];
 };

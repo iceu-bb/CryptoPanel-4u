@@ -6,6 +6,7 @@ import LangSwitch from '../SwitchLanguage';
 import TogglePanel from '../TogglePanel';
 import Header from '../Header';
 import CoinItem from '../CoinItem';
+import ScrollTopButton from '../ScrollTopButton';
 
 const MainContanier = () => {
   const [coins, setCoins] = useState();
@@ -24,6 +25,7 @@ const MainContanier = () => {
 
   return (
     <section>
+      <ScrollTopButton />
       <LangSwitch />
       <TogglePanel />
       <Header />

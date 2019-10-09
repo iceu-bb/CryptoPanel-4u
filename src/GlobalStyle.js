@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
         max-width:100vw;
         overflow-x: hidden;
         font-size: 62.5%;
+        scroll-behavior: smooth;
     }
 
     *, *::before, *::after{
@@ -27,6 +28,10 @@ const GlobalStyle = createGlobalStyle`
     main {
         margin: 0 auto;
         max-width: 1000px;
+    }
+
+    button:focus , button:active, a:focus, a:active{
+        outline:none
     }
 
 `;
