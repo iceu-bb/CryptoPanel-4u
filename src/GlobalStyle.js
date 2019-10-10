@@ -7,6 +7,10 @@ const GlobalStyle = createGlobalStyle`
         overflow-x: hidden;
         font-size: 62.5%;
         scroll-behavior: smooth;
+
+        @media (max-width: 600px) {
+            font-size: 56.25%;
+            }
     }
 
     *, *::before, *::after{

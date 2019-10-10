@@ -17,6 +17,35 @@ export const CoinItemContainer = styled.article`
   }
 `;
 
+export const HeaderItemContainer = styled(CoinItemContainer)`
+  @media (max-width: 600px) {
+    padding: 25px 10px 25px 0px;
+  }
+
+  & > div:first-child > span {
+    padding: 10px;
+    @media (min-width: 600px) {
+      margin-left: -10px;
+    }
+  }
+
+  & > div:not(:nth-child(1)) > span {
+    @media (max-width: 600px) {
+      margin-left: 15px;
+    }
+  }
+`;
+
+export const HeaderItemElement = styled.span`
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover {
+    color: yellow;
+  }
+`;
+
 export const CoinName = styled.span`
   display: flex;
   align-items: center;
