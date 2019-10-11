@@ -27,3 +27,10 @@ export const getHistoData = async (
   const result = await axios.get(`${histoDataUrl}`).then(({ data }) => data);
   return result;
 };
+
+export const getAllCoins = async () => {
+  const result = await axios
+    .get(`${baseUrl}all/coinlist`)
+    .then(({ data }) => data);
+  return result;
+};

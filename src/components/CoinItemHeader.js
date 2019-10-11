@@ -12,11 +12,11 @@ import {
 } from '../helpers/sortingFunctions';
 import HeaderItem from './HeaderItem';
 
-const CoinItem = ({ coins, setCoins, handleFetch }) => {
+const CoinItem = ({ coins, setCoins, handleInitialFetch }) => {
   return (
     <HeaderItemContainer>
       <div>
-        <HeaderItem funcAsc={handleFetch} funcDesc={handleFetch}>
+        <HeaderItem funcAsc={handleInitialFetch} funcDesc={handleInitialFetch}>
           #
         </HeaderItem>
       </div>
