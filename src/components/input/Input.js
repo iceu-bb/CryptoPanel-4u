@@ -26,9 +26,6 @@ const Input = ({ setShowInput }) => {
     [value]
   );
 
-  const handleEscPress = key =>
-    key === 'Enter' && suggestions.length > 0 && handleSubmit();
-
   const handleKeyPress = key =>
     key === 'Enter' && suggestions.length > 0 && handleSubmit();
 
@@ -36,7 +33,7 @@ const Input = ({ setShowInput }) => {
     key === 'Enter' && handleSubmit(item);
 
   const handleSubmit = (item = suggestions[0]) => {
-    if (showOptions && value.length > 0 && suggestions.length > 0) {
+    if (showOptions && suggestions.length > 0) {
       setShowInput(false);
       setShowOptions(false);
       setValue('');

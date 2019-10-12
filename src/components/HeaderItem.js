@@ -1,16 +1,26 @@
 import React, { useState } from 'react';
 import { HeaderItemElement } from '../styles/CoinItemStyles';
 
-const HeaderItem = ({ children, funcAsc, funcDesc, coins, setCoins }) => {
+const HeaderItem = ({
+  id,
+  children,
+  funcAsc,
+  funcDesc,
+  coins,
+  setCoins,
+  active,
+  setActiveElem
+}) => {
   const [on, toggle] = useState(false);
 
   const handleClick = () => {
     on ? funcAsc(coins, setCoins) : funcDesc(coins, setCoins);
     toggle(!on);
+    setActiveElem(id);
   };
 
   return (
-    <HeaderItemElement onClick={() => handleClick()}>
+    <HeaderItemElement active={active} on={on} onClick={() => handleClick()}>
       {children}
     </HeaderItemElement>
   );

@@ -29,3 +29,8 @@ export const ScrollTopBackgroundColor = theme('mode', {
   light: 'rgba(23,24,27,0.85)',
   dark: ' #727272'
 });
+
+export const LoaderColor = theme('mode', {
+  light: '#2D7DF8',
+  dark: '#fff'
+});

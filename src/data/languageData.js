@@ -1,13 +1,13 @@
 const langData = {
   en: {
     app: {
-      h1: 'World Top 100 Cryptocurrencies'
+      h1: `The World's Top 100 Cryptocurrencies`
     },
     listHeader: {
       name: 'Name',
       price: 'Price',
       marketCap: 'Market Cap',
-      change: 'change'
+      change: 'Change'
     },
     coinDashboard: {
       statistics: 'Statistics',

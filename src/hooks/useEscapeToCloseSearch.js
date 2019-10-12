@@ -1,24 +1,21 @@
 import { useEffect } from 'react';
+import { throttle } from '../helpers/throttle';
 
-export const useEscapeToCloseSearch = (
-  closeModal = () => {
-    console.log('closed');
-  }
-) => {
+export const useEscapeToCloseSearch = (callback = () => {}) => {
   useEffect(() => {
     window.innerWidth > 600 &&
-      window.addEventListener('keydown', handleKeyPress);
+      window.addEventListener('keydown', throttledHandleKeyPress);
 
     return () => {
       window.innerWidth > 600 &&
-        window.removeEventListener('keydown', handleKeyPress);
+        window.removeEventListener('keydown', throttledHandleKeyPress);
     };
   }, []);
 
   const handleKeyPress = ({ key }) => {
     if (key === 'Escape') {
-      closeModal();
+      callback();
     }
   };
-  //   const throttledHandleKeyPress = throttled(200, handleKeyPress);
+  const throttledHandleKeyPress = throttle(handleKeyPress, 200);
 };

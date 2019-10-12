@@ -25,8 +25,8 @@ const GlobalStyle = createGlobalStyle`
         width: 100vw;
         color: ${fontColor};
         background-color: ${backgroundColor};
-        font-family: 'Helvetica Neue',
-
+        font-family: 'Helvetica Neue';
+        transition: all .1s linear;
     }
 
     main {
@@ -41,12 +41,22 @@ const GlobalStyle = createGlobalStyle`
     }
 
     button:focus , button:active, a:focus, a:active{
-        outline:none
+        outline:none;
+
     }
 
     button:active {
     box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
       0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+    }
+
+    input,
+    textarea,
+    button,
+    select,
+    a,
+    span {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
     }
 
 `;

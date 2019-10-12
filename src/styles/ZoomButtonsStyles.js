@@ -20,7 +20,12 @@ export const Button = styled.button`
   background-color: ${buttonBackgroundColor};
   border: none;
   cursor: pointer;
+  transition: color 250ms linear, border 250ms linear;
 
-  &:hover {
+  border: ${({ active }) =>
+    active ? '1px solid #49B8B8' : '1px solid transparent'};
+
+  &:active {
+    box-shadow: none;
   }
 `;

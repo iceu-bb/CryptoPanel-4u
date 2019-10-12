@@ -40,9 +40,43 @@ export const HeaderItemElement = styled.span`
   font-size: 2rem;
   font-weight: bold;
   cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease;
+  position: relative;
 
-  &:hover {
-    color: yellow;
+  &::before {
+    ${({ active, on }) =>
+      active &&
+      on &&
+      `
+   content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    bottom: 4px;
+    right: -20px;
+    border-top: solid 10px #fcb045;
+    border-left: solid 5px transparent;
+    border-right: solid 5px transparent;
+    `}
+
+    ${({ active, on }) =>
+      active &&
+      !on &&
+      `
+    content: '';
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      bottom: 5px;
+      right: -20px;
+      border-bottom: solid 10px #fcb045;
+      border-left: solid 5px transparent;
+      border-right: solid 5px transparent;
+    `}
+  }
   }
 `;
 
@@ -66,13 +100,10 @@ export const Image = styled.img`
 export const StyledLink = styled(Link)`
   color: inherit;
   text-decoration: none;
-  transition: all 0.15s ease;
-  will-change: opacity;
-  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease;
 
   &:hover {
-    opacity: 0.85;
-    border-bottom: 2px solid;
+    color: #2d7df8;
   }
 `;
 

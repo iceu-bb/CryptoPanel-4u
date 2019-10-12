@@ -8,6 +8,7 @@ import Header from '../Header';
 import CoinItemHeader from '../CoinItemHeader';
 import CoinItem from '../CoinItem';
 import ScrollTopButton from '../ScrollTopButton';
+import Loader from '../Loader';
 
 const MainContanier = () => {
   const [coins, setCoins] = useState();
@@ -39,7 +40,7 @@ const MainContanier = () => {
       <SettingsPanel />
       <Header />
 
-      {coins && coins.length > 2 && (
+      {coins && coins.length > 2 ? (
         <div style={{ position: 'relative' }}>
           <CoinItemHeader
             coins={coins}
@@ -50,8 +51,10 @@ const MainContanier = () => {
             <CoinItem coin={coin} key={coin.CoinInfo.Id} index={index} />
           ))}
         </div>
+      ) : (
+        <Loader />
       )}
-      {isFetching && <p>loading data...</p>}
+      {isFetching && <Loader />}
     </section>
   );
 };

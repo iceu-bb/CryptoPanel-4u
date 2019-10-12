@@ -25,7 +25,7 @@ const useInfiniteScroll = callback => {
     )
       return;
     setIsFetching(true);
-  });
+  }, 250);
 
   return [page, isFetching, setIsFetching];
 };

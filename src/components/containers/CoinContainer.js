@@ -3,6 +3,7 @@ import { getCoinData, getHistoData } from '../../services/cryptoApi';
 import CoinDashboard from '../CoinDashboard';
 import ChartsPanel from '../ChartsPanel';
 import ZoomButtons from '../ZoomButtons';
+import Loader from '../Loader';
 
 const CoinContainer = ({ name }) => {
   const [coinData, setCoinData] = useState();
@@ -16,11 +17,15 @@ const CoinContainer = ({ name }) => {
 
   return (
     <section>
-      {coinData && (
-        <CoinDashboard coin={coinData.DISPLAY[name][currency]} name={name} />
+      {coinData && histoData ? (
+        <>
+          <CoinDashboard coin={coinData.DISPLAY[name][currency]} name={name} />
+          <ZoomButtons setHistoData={setHistoData} name={name} />
+          <ChartsPanel data={histoData} name={name} />
+        </>
+      ) : (
+        <Loader />
       )}
-      <ZoomButtons setHistoData={setHistoData} name={name} />
-      {histoData && <ChartsPanel data={histoData} name={name} />}
     </section>
   );
 };
