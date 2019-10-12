@@ -1,35 +1,59 @@
 const langData = {
   en: {
     app: {
-      h1: 'Good Day'
+      h1: 'World Top 100 Cryptocurrencies'
+    },
+    listHeader: {
+      name: 'Name',
+      price: 'Price',
+      marketCap: 'Market Cap',
+      change: 'change'
     },
     coinDashboard: {
+      statistics: 'Statistics',
       price: 'Price',
       highest24h: '24 Hour High',
       lowest24h: '24 Hour Low',
-      change: '24 Hour Change'
+      change: '24 Hour Change',
+      chartTitle: 'price chart'
     }
   },
   pl: {
     app: {
-      h1: 'Dzień Dobry'
+      h1: 'Lista 100 topowych kryptowalut na świecie'
+    },
+    listHeader: {
+      name: 'Nazwa',
+      price: 'Cena',
+      marketCap: 'Kapitalizacja',
+      change: 'Zmiana'
     },
     coinDashboard: {
+      statistics: 'Statystyki',
       price: 'Cena',
-      highest24h: '24-godzinna najwyższa cena ',
-      lowest24h: '24-godzinna najniższa cena',
-      change: '24-godzinna różnica w cenie '
+      highest24h: '24h najwyższa cena ',
+      lowest24h: '24h najniższa cena',
+      change: '24h różnica w cenie ',
+      chartTitle: 'wykres cen'
     }
   },
   is: {
     app: {
-      h1: 'góðan daginn'
+      h1: 'Heimsins Top 100 cryptocururrency'
+    },
+    listHeader: {
+      name: 'Nafn',
+      price: 'Verð',
+      marketCap: 'Eignfærsla',
+      change: 'Breyting'
     },
     coinDashboard: {
-      price: 'is-price',
-      highest24h: 'is',
-      lowest24h: 'is',
-      change: 'is'
+      statistics: 'Tölfræði',
+      price: 'Verð',
+      highest24h: '24h hæsta verðið',
+      lowest24h: '24h lægsta verð',
+      change: '24h verðmunur',
+      chartTitle: 'verðskrá'
     }
   }
 };

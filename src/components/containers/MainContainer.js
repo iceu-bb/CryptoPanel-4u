@@ -3,18 +3,14 @@ import { getCoinList } from '../../services/cryptoApi';
 import { refreshData } from '../../services/localStorage';
 import useInfiniteScroll from '../../hooks/useInfiniteScroll';
 
-import LangSwitch from '../SwitchLanguage';
-import TogglePanel from '../TogglePanel';
+import SettingsPanel from '../SettingsPanel';
 import Header from '../Header';
 import CoinItemHeader from '../CoinItemHeader';
 import CoinItem from '../CoinItem';
 import ScrollTopButton from '../ScrollTopButton';
-import Input from '../input/Input';
-import SearchButton from '../input/SearchButton';
 
 const MainContanier = () => {
   const [coins, setCoins] = useState();
-  const [showInput, setShowInput] = useState(false);
 
   const handleScrollFetch = async page => {
     const results = await getCoinList(page).then(({ Data }) => Data);
@@ -40,15 +36,8 @@ const MainContanier = () => {
   return (
     <section>
       <ScrollTopButton />
-      <LangSwitch />
-      <TogglePanel />
+      <SettingsPanel />
       <Header />
-
-      {showInput ? (
-        <Input setShowInput={setShowInput} />
-      ) : (
-        <SearchButton setShowInput={setShowInput} />
-      )}
 
       {coins && coins.length > 2 && (
         <div style={{ position: 'relative' }}>

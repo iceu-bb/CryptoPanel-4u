@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { LanguageContext } from '../context/LanguageContext';
 import { HeaderItemContainer, MarketCap } from '../styles/CoinItemStyles';
 import {
   sortCoinsByNameAsc,
@@ -13,6 +14,7 @@ import {
 import HeaderItem from './HeaderItem';
 
 const CoinItem = ({ coins, setCoins, handleInitialFetch }) => {
+  const { listHeader } = useContext(LanguageContext).currentLangData;
   return (
     <HeaderItemContainer>
       <div>
@@ -27,7 +29,7 @@ const CoinItem = ({ coins, setCoins, handleInitialFetch }) => {
           funcAsc={sortCoinsByNameAsc}
           funcDesc={sortCoinsByNameDesc}
         >
-          Name
+          {listHeader.name}
         </HeaderItem>
       </div>
       <div>
@@ -37,7 +39,7 @@ const CoinItem = ({ coins, setCoins, handleInitialFetch }) => {
           funcAsc={sortCoinsByPriceAsc}
           funcDesc={sortCoinsByPriceDesc}
         >
-          Price
+          {listHeader.price}
         </HeaderItem>
       </div>
       <MarketCap>
@@ -47,7 +49,7 @@ const CoinItem = ({ coins, setCoins, handleInitialFetch }) => {
           funcAsc={sortCoinsByMarketCapAsc}
           funcDesc={sortCoinsByMarketCapDesc}
         >
-          Market Cap
+          {listHeader.marketCap}
         </HeaderItem>
       </MarketCap>
       <div>
@@ -57,7 +59,7 @@ const CoinItem = ({ coins, setCoins, handleInitialFetch }) => {
           funcAsc={sortCoinsByChangeAsc}
           funcDesc={sortCoinsByChangeDesc}
         >
-          <MarketCap>Change </MarketCap>24h
+          <MarketCap>{listHeader.change} </MarketCap>24h
         </HeaderItem>
       </div>
     </HeaderItemContainer>

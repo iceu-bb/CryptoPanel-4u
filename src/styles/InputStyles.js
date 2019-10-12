@@ -36,6 +36,7 @@ export const StyledInput = styled.input`
   color: #404040;
   font-weight: 300;
   border: none;
+  outline: none;
 `;
 
 export const Options = styled.div`
@@ -80,4 +81,13 @@ export const CloseButton = styled.button`
   &:hover {
     background-color: #eee;
   }
+`;
+
+export const StyledSearchButton = styled.span`
+  margin-top: 3px;
+  display: inline-block;
+  padding: 10px 15px;
+  color: inherit;
+  font-size: 1.6rem;
+  cursor: pointer;
 `;

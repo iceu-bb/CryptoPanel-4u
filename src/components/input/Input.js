@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { navigate } from '@reach/router';
 import { useSuggestions } from '../../hooks/useSuggestions';
+import { useEscapeToCloseSearch } from '../../hooks/useEscapeToCloseSearch';
 import {
   Wrapper,
   Container,
@@ -15,6 +16,7 @@ const Input = ({ setShowInput }) => {
   const [value, setValue] = useState('');
   const [showOptions, setShowOptions] = useState(false);
   const { suggestions } = useSuggestions(value);
+  useEscapeToCloseSearch(() => setShowInput(false));
 
   const handleChange = useCallback(
     newValue => {
@@ -23,6 +25,9 @@ const Input = ({ setShowInput }) => {
     },
     [value]
   );
+
+  const handleEscPress = key =>
+    key === 'Enter' && suggestions.length > 0 && handleSubmit();
 
   const handleKeyPress = key =>
     key === 'Enter' && suggestions.length > 0 && handleSubmit();

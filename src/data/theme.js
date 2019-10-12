@@ -19,3 +19,13 @@ export const buttonBackgroundColor = theme('mode', {
   light: '#ecf4f3',
   dark: '#5f6769'
 });
+
+export const ScrollTopColor = theme('mode', {
+  light: '#fff',
+  dark: '#17181b'
+});
+
+export const ScrollTopBackgroundColor = theme('mode', {
+  light: 'rgba(23,24,27,0.85)',
+  dark: ' #727272'
+});

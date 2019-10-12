@@ -1,15 +1,18 @@
 import React, { useContext } from 'react';
 import { LanguageContext } from '../context/LanguageContext';
+import { LanguageButton, ButtonContainer } from '../styles/SettingsPanelStyles';
 
 const SwitchLangs = () => {
   const { switchLang } = useContext(LanguageContext);
 
   return (
-    <div className='LangSwitch'>
-      <button onClick={() => switchLang('en')}>English</button>
-      <button onClick={() => switchLang('pl')}>Polish</button>
-      <button onClick={() => switchLang('is')}>Icelandic</button>
-    </div>
+    <ButtonContainer>
+      <LanguageButton onClick={() => switchLang('en')}>English</LanguageButton>
+      <LanguageButton onClick={() => switchLang('pl')}>Polish</LanguageButton>
+      <LanguageButton onClick={() => switchLang('is')}>
+        Icelandic
+      </LanguageButton>
+    </ButtonContainer>
   );
 };
 

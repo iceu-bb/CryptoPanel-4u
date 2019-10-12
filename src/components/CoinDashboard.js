@@ -12,14 +12,7 @@ import {
 } from '../styles/CoinDashboardStyles';
 
 const CoinDashboard = ({ coin, name }) => {
-  const {
-    PRICE,
-    HIGH24HOUR,
-    LOW24HOUR,
-    CHANGEPCT24HOUR,
-
-    IMAGEURL
-  } = coin;
+  const { PRICE, HIGH24HOUR, LOW24HOUR, CHANGEPCT24HOUR, IMAGEURL } = coin;
 
   const { coinDashboard } = useContext(LanguageContext).currentLangData;
 
@@ -33,7 +26,9 @@ const CoinDashboard = ({ coin, name }) => {
           />
         </div>
         <StatisticsContainer>
-          <H2>{name} Statistics</H2>
+          <H2>
+            {name} {coinDashboard.statistics}
+          </H2>
           <StatisticsItem>
             <Thin>{coinDashboard.price}:</Thin>
             <Bold>{PRICE}</Bold>
