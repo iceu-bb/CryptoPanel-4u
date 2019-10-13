@@ -12,15 +12,15 @@ export const Wrapper = styled.header`
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  & > *:not(last-child) {
+  & > :first-child {
     margin-right: 20px;
   }
 `;
 
-export const Title = styled.div`
+export const Title = styled.img`
   display: inline-block;
-  font-size: 2.5rem;
-  color: ${fontColor};
+  height: auto;
+  width: 100px;
 `;
 
 export const ButtonContainer = styled.div`
@@ -32,7 +32,7 @@ export const ButtonContainer = styled.div`
 export const LanguageButton = styled.button`
   font-size: 1.5rem;
   font-weight: 500;
-  color: ${fontColor};
+  color: #fff;
   padding: 10px;
   background-color: inherit;
   border: none;

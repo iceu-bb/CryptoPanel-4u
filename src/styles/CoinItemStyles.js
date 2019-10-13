@@ -103,7 +103,9 @@ export const StyledLink = styled(Link)`
   transition: color 0.2s ease;
 
   &:hover {
-    color: #2d7df8;
+    @media (min-width: 600px) {
+      color: #2d7df8;
+    }
   }
 `;
 

@@ -3,13 +3,16 @@ import { backgroundColor, fontColor } from './data/theme';
 
 const GlobalStyle = createGlobalStyle`
     html {
-        max-width:100vw;
+        max-width: 100vw;
         overflow-x: hidden;
         font-size: 62.5%;
         scroll-behavior: smooth;
 
         @media (max-width: 600px) {
             font-size: 56.25%;
+            }
+        @media (max-width: 350px) {
+            font-size: 50%;
             }
     }
 
@@ -19,14 +22,13 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
     body {
-        max-width:100vw;
+        max-width: 100vw;
         overflow-x: hidden;
-        min-height: 100vh;
-        width: 100vw;
         color: ${fontColor};
         background-color: ${backgroundColor};
         font-family: 'Helvetica Neue';
         transition: all .1s linear;
+        position: relative;
     }
 
     main {

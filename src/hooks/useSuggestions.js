@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react';
 import fuzzy from 'fuzzy';
 import { debounce } from '../helpers/debounce';
-import { getCoins, getTop100Coins } from '../services/localStorage';
+import {
+  getCoins,
+  getTop100Coins,
+  refreshData
+} from '../services/localStorage';
 
 /* useSuggestions Hook */
 export const useSuggestions = searchString => {
@@ -11,10 +15,11 @@ export const useSuggestions = searchString => {
 
   // fetch Data if data exist
   useEffect(() => {
-    localStorage.getItem('refreshData') &&
-      getCoins().then(data => setCoinList([...data])) &&
-      getTop100Coins().then(data => setTop100List([...data]));
-  }, [localStorage.getItem('refreshData')]);
+    localStorage.getItem('coins') && localStorage.getItem('top100')
+      ? getCoins().then(data => setCoinList([...data])) &&
+        getTop100Coins().then(data => setTop100List([...data]))
+      : window.location.reload();
+  }, []);
 
   // set suggestions
   useEffect(

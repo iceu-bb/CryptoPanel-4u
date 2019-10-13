@@ -10,12 +10,13 @@ const TogglePanel = () => {
     themeState: { mode }
   } = useContext(ThemeToggleContext);
 
+  console.log(mode);
   return (
     <Toggle
-      defaultChecked={Boolean(mode)}
+      defaultChecked={mode === 'dark' ? true : false}
       icons={{
-        checked: <FaMoon />,
-        unchecked: <FaSun />
+        checked: <FaSun />,
+        unchecked: <FaMoon />
       }}
       onChange={themeToggle}
     />

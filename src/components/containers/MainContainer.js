@@ -8,6 +8,7 @@ import Header from '../Header';
 import CoinItemHeader from '../CoinItemHeader';
 import CoinItem from '../CoinItem';
 import ScrollTopButton from '../ScrollTopButton';
+import LanguageBar from '../LanguageBar';
 import Loader from '../Loader';
 
 const MainContanier = () => {
@@ -38,6 +39,7 @@ const MainContanier = () => {
     <section>
       <ScrollTopButton />
       <SettingsPanel />
+      <LanguageBar />
       <Header />
 
       {coins && coins.length > 2 ? (
