@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { fontColor } from '../data/theme';
 
 export const Wrapper = styled.header`
   max-width: 1000px;

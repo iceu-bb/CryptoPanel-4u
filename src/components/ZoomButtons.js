@@ -7,9 +7,9 @@ const ZoomButtons = ({ setHistoData, name }) => {
 
   const handleClick = async (e, aggregate, period = 'day', limit = 100) => {
     setActiveBtn(e.target.id);
-    await getHistoData(name, aggregate, period, limit).then(
-      ({ Data: { Data } }) => setHistoData(Data)
-    );
+    await getHistoData(name, aggregate, period, limit).then(({ Data }) => {
+      setHistoData(Data);
+    });
   };
 
   return (

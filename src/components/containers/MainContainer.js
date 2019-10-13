@@ -20,15 +20,15 @@ const MainContanier = () => {
     setIsFetching(false);
   };
 
+  const [page, isFetching, setIsFetching] = useInfiniteScroll(
+    handleScrollFetch
+  );
+
   const handleInitialFetch = async () => {
     getCoinList(0).then(({ Data }) => {
       setCoins(Data);
     });
   };
-
-  const [page, isFetching, setIsFetching] = useInfiniteScroll(
-    handleScrollFetch
-  );
 
   useEffect(() => {
     !coins && handleInitialFetch();

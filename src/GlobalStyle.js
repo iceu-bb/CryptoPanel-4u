@@ -27,7 +27,6 @@ const GlobalStyle = createGlobalStyle`
         color: ${fontColor};
         background-color: ${backgroundColor};
         font-family: 'Helvetica Neue';
-        transition: all .1s linear;
         position: relative;
     }
 

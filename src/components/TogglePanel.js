@@ -10,7 +10,6 @@ const TogglePanel = () => {
     themeState: { mode }
   } = useContext(ThemeToggleContext);
 
-  console.log(mode);
   return (
     <Toggle
       defaultChecked={mode === 'dark' ? true : false}

@@ -3,16 +3,21 @@ import { Router } from '@reach/router';
 import GlobalStyle from './GlobalStyle';
 import MainContanier from './components/containers/MainContainer';
 import CoinContanier from './components/containers/CoinContainer';
+import ErrorBoundary from './components/ErrorBoundary.js';
+import NotFound from './components/NotFound.js';
 
 const App = () => {
   return (
     <>
       <GlobalStyle />
       <main>
-        <Router>
-          <MainContanier path='/' />
-          <CoinContanier path='/coin/:name' />
-        </Router>
+        <ErrorBoundary>
+          <Router>
+            <MainContanier path='/' />
+            <CoinContanier path='/coin/:name' />
+            <NotFound default />
+          </Router>
+        </ErrorBoundary>
       </main>
     </>
   );

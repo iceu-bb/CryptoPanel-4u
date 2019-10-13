@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { throttle } from '../helpers/throttle';
 
-export const useEscapeToCloseSearch = (callback = () => {}) => {
+export const useEscapePress = (callback = () => {}) => {
   useEffect(() => {
     window.innerWidth > 600 &&
       window.addEventListener('keydown', throttledHandleKeyPress);

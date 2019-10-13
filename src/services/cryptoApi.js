@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { navigate } from '@reach/router';
 
 const baseUrl = 'https://min-api.cryptocompare.com/data/';
 
@@ -12,8 +13,9 @@ export const getCoinList = async pageNumber => {
 export const getCoinData = async (coin = 'BTC', currency = 'USD') => {
   const coinDataUrl = `${baseUrl}pricemultifull?fsyms=${coin}&tsyms=${currency}&api_key=${process.env.API_KEY}`;
 
-  const result = await axios.get(`${coinDataUrl}`).then(({ data }) => data);
-  return result;
+  const result = await axios.get(`${coinDataUrl}`);
+  if (result.data.Response === 'Error') navigate('/not-found');
+  return result.data;
 };
 
 export const getHistoData = async (
@@ -24,8 +26,9 @@ export const getHistoData = async (
 ) => {
   const histoDataUrl = `${baseUrl}v2/histo${period}?fsym=${coin}&tsym=USD&limit=${limit}&aggregate=${aggregate}&api_key=${process.env.API_KEY}`;
 
-  const result = await axios.get(`${histoDataUrl}`).then(({ data }) => data);
-  return result;
+  const result = await axios.get(`${histoDataUrl}`);
+  if (result.data.Response === 'Error') navigate('/not-found');
+  return result.data.Data;
 };
 
 export const getAllCoins = async () => {

@@ -1,11 +1,7 @@
 import { useState, useEffect } from 'react';
 import fuzzy from 'fuzzy';
 import { debounce } from '../helpers/debounce';
-import {
-  getCoins,
-  getTop100Coins,
-  refreshData
-} from '../services/localStorage';
+import { getCoins, getTop100Coins } from '../services/localStorage';
 
 /* useSuggestions Hook */
 export const useSuggestions = searchString => {
