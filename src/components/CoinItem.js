@@ -17,7 +17,7 @@ const CoinItem = ({ coin, index }) => {
       <span>{index + 1}</span>
       <CoinName>
         <Image
-          src={`https://www.cryptocompare.com${ImageUrl}`}
+          src={`https://www.cryptocompare.com${ImageUrl}?width=20&height=20`}
           alt={`${FullName} image`}
         />
         {<StyledLink to={`/coin/${Name}`}>{FullName}</StyledLink>}

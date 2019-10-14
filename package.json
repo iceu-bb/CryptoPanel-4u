@@ -1,6 +1,6 @@
 {
-  "name": "project",
-  "version": "0.1.0",
+  "name": "CryptoPanel4u",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@reach/router": "^1.2.1",
@@ -20,7 +20,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && firebase deploy"
   },
   "eslintConfig": {
     "extends": "react-app"

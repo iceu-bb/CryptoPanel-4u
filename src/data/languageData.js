@@ -1,7 +1,7 @@
 const langData = {
   en: {
     app: {
-      h1: `The World's Top 100 Cryptocurrencies`
+      h1: `List of Top Cryptocurrencies in the world`
     },
     listHeader: {
       name: 'Name',
@@ -20,7 +20,7 @@ const langData = {
   },
   pl: {
     app: {
-      h1: 'Lista 100 topowych kryptowalut na świecie'
+      h1: 'Lista topowych Kryptowalut na świecie'
     },
     listHeader: {
       name: 'Nazwa',
@@ -39,7 +39,7 @@ const langData = {
   },
   is: {
     app: {
-      h1: 'Heimsins Top 100 cryptocururrency'
+      h1: 'Listi yfir helstu Kryptocururrency í heiminum'
     },
     listHeader: {
       name: 'Nafn',

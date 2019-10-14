@@ -21,7 +21,7 @@ const CoinDashboard = ({ coin, name }) => {
       <CoinInfoContainer>
         <div>
           <Image
-            src={`https://www.cryptocompare.com${IMAGEURL}`}
+            src={`https://www.cryptocompare.com${IMAGEURL}?width=130&height=130`}
             alt={`${name} image`}
           />
         </div>
