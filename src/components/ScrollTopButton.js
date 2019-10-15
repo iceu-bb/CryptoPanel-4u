@@ -7,7 +7,11 @@ const ScrollTopButton = () => {
   const { show } = useScrollTop();
 
   return (
-    <Button show={show} onClick={() => window.scrollTo(0, 0)}>
+    <Button
+      data-testid='scroll-top-button'
+      show={show}
+      onClick={() => window.scrollTo(0, 0)}
+    >
       <FaChevronUp />
     </Button>
   );

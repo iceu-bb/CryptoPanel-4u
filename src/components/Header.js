@@ -6,7 +6,7 @@ const Header = () => {
   const { app } = useContext(LanguageContext).currentLangData;
   return (
     <Container>
-      <H1>{app.h1}</H1>
+      <H1 data-testid='header-test'>{app.h1}</H1>
     </Container>
   );
 };

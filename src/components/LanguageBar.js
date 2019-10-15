@@ -20,10 +20,14 @@ const LanguageBar = () => {
   };
 
   return (
-    <Wrapper ref={LanguageBarRef} open={open}>
-      <Bar open={open} onClick={() => handleClick()} />
+    <Wrapper data-testid='wrapper-test' ref={LanguageBarRef} open={open}>
+      <Bar
+        data-testid='button-bar-test'
+        open={open}
+        onClick={() => handleClick()}
+      />
       <Panel open={open}>
-        <SwitchLanguage setOpen={setOpen} />
+        <SwitchLanguage open={open} setOpen={setOpen} />
       </Panel>
     </Wrapper>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { navigate } from '@reach/router';
 
 const Wrapper = styled.div`
   margin: 0 auto;
@@ -18,7 +19,7 @@ const NotFound = () => {
     <Wrapper>
       404 Not found!
       <div>
-        <a href='/'>Home Page</a>
+        <button onClick={() => navigate('/')}>Home Page</button>
       </div>
     </Wrapper>
   );

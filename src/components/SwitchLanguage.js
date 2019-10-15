@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { LanguageContext } from '../context/LanguageContext';
 import { LanguageButton, ButtonContainer } from '../styles/SettingsPanelStyles';
 
-const SwitchLangs = ({ setOpen }) => {
+const SwitchLangs = ({ open, setOpen }) => {
   const { switchLang } = useContext(LanguageContext);
 
   const handleClick = lang => {
@@ -12,9 +12,22 @@ const SwitchLangs = ({ setOpen }) => {
 
   return (
     <ButtonContainer>
-      <LanguageButton onClick={() => handleClick('en')}>English</LanguageButton>
-      <LanguageButton onClick={() => handleClick('pl')}>Polish</LanguageButton>
-      <LanguageButton onClick={() => handleClick('is')}>
+      <LanguageButton
+        tabIndex={open ? 0 : -1}
+        onClick={() => handleClick('en')}
+      >
+        English
+      </LanguageButton>
+      <LanguageButton
+        tabIndex={open ? 0 : -1}
+        onClick={() => handleClick('pl')}
+      >
+        Polish
+      </LanguageButton>
+      <LanguageButton
+        tabIndex={open ? 0 : -1}
+        onClick={() => handleClick('is')}
+      >
         Icelandic
       </LanguageButton>
     </ButtonContainer>
