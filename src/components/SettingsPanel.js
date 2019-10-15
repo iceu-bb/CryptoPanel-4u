@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Wrapper, Container, Title } from '../styles/SettingsPanelStyles';
-
 import TogglePanel from './TogglePanel';
 import Input from './input/Input';
 import SearchButton from './input/SearchButton';
@@ -8,7 +7,7 @@ import SearchButton from './input/SearchButton';
 const SettingsPanel = () => {
   const [showInput, setShowInput] = useState(false);
   return (
-    <Wrapper>
+    <Wrapper data-testid='test'>
       <Title src={'./logo.png'} alt='logo' />
       <Container>
         <TogglePanel />

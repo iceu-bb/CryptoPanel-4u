@@ -39,7 +39,7 @@ const Input = ({ setShowInput }) => {
       setValue('');
       navigate(`/coin/${item.match(/\(([^)]+)\)/)[1]}`);
     } else {
-      alert('bład');
+      alert('error');
     }
   };
 
@@ -52,16 +52,16 @@ const Input = ({ setShowInput }) => {
           placeholder='Search a coin'
           onKeyDown={e => handleKeyPress(e.key)}
           onChange={e => handleChange(e.target.value)}
-          onFocus={() => value.length > 0 && setShowOptions(true)}
           autoFocus
         />
         <CloseButton onClick={() => setShowInput(false)}>Close</CloseButton>
       </Container>
       {showOptions && (
-        <Options>
+        <Options data-testid='suggestions-test'>
           <OptionsSuggestion>Cryptocurrencies</OptionsSuggestion>
           {suggestions.map((item, index) => (
             <OptionsItem
+              data-testid='suggestions-option-test'
               tabIndex={0}
               role='button'
               onKeyDown={e => handleKeyPressOnItem(e.key, item)}

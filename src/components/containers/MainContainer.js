@@ -5,7 +5,7 @@ import useInfiniteScroll from '../../hooks/useInfiniteScroll';
 
 import SettingsPanel from '../SettingsPanel';
 import Header from '../Header';
-import CoinItemHeader from '../CoinItemHeader';
+import CoinItemHeaderPanel from '../CoinItemHeaderPanel';
 import CoinItem from '../CoinItem';
 import ScrollTopButton from '../ScrollTopButton';
 import LanguageBar from '../LanguageBar';
@@ -44,7 +44,7 @@ const MainContanier = () => {
 
       {coins && coins.length > 2 ? (
         <div style={{ position: 'relative' }}>
-          <CoinItemHeader
+          <CoinItemHeaderPanel
             coins={coins}
             setCoins={setCoins}
             handleInitialFetch={handleInitialFetch}
