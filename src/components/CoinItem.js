@@ -21,15 +21,13 @@ const CoinItem = ({ coin, index }) => {
           src={`https://www.cryptocompare.com${ImageUrl}?width=20&height=20`}
           alt={`${FullName} image`}
         />
-        {
-          <StyledLink
-            tabIndex={0}
-            data-testid='coin-item-link'
-            to={`/coin/${Name}`}
-          >
-            {FullName}
-          </StyledLink>
-        }
+        <StyledLink
+          tabIndex={0}
+          data-testid='coin-item-link'
+          to={`/coin/${Name}`}
+        >
+          {FullName}
+        </StyledLink>
       </CoinName>
       <span>{PRICE}</span>
       <MarketCap>$ {MKTCAP.toFixed(0)}</MarketCap>

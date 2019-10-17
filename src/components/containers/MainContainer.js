@@ -11,7 +11,7 @@ import ScrollTopButton from '../ScrollTopButton';
 import LanguageBar from '../LanguageBar';
 import Loader from '../Loader';
 
-const MainContanier = () => {
+const MainContainer = () => {
   const [coins, setCoins] = useState();
 
   const handleScrollFetch = async page => {
@@ -25,9 +25,7 @@ const MainContanier = () => {
   );
 
   const handleInitialFetch = async () => {
-    getCoinList(0).then(({ Data }) => {
-      setCoins(Data);
-    });
+    getCoinList(0).then(({ Data }) => setCoins(Data));
   };
 
   useEffect(() => {
@@ -61,4 +59,4 @@ const MainContanier = () => {
   );
 };
 
-export default MainContanier;
+export default MainContainer;

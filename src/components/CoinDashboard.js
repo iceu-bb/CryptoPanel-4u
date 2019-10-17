@@ -13,7 +13,6 @@ import {
 
 const CoinDashboard = ({ coin, name }) => {
   const { PRICE, HIGH24HOUR, LOW24HOUR, CHANGEPCT24HOUR, IMAGEURL } = coin;
-
   const { coinDashboard } = useContext(LanguageContext).currentLangData;
 
   return (

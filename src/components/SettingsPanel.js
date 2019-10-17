@@ -7,7 +7,7 @@ import SearchButton from './input/SearchButton';
 const SettingsPanel = () => {
   const [showInput, setShowInput] = useState(false);
   return (
-    <Wrapper data-testid='test'>
+    <Wrapper>
       <Title src={'./logo.png'} alt='logo' />
       <Container>
         <TogglePanel />

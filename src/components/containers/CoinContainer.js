@@ -17,9 +17,7 @@ const CoinContainer = ({ name }) => {
 
   useEffect(() => {
     getCoinData(name, currency).then(data => setCoinData(data));
-    getHistoData(name).then(({ Data }) => {
-      setHistoData(Data);
-    });
+    getHistoData(name).then(({ Data }) => setHistoData(Data));
   }, []);
 
   return (

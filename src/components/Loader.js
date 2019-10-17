@@ -48,7 +48,7 @@ const StyledLoader = styled.div`
 
 const Loader = () => {
   return (
-    <Wrapper>
+    <Wrapper data-testid='loader-test'>
       <StyledLoader>
         <div></div>
         <div></div>
