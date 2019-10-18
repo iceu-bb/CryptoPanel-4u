@@ -20,8 +20,33 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:all": "npm test -- --coverage --watchAll",
     "eject": "react-scripts eject",
     "deploy": "npm run build && firebase deploy"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/index.js",
+      "!src/GlobalStyle.js",
+      "!src/serviceWorker.js",
+      "!src/hooks/*.js",
+      "!src/context/*.js",
+      "!src/helpers/*.js",
+      "!src/data/*.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 88,
+        "lines": 90,
+        "statements": 90
+      }
+    },
+    "coverageReporters": [
+      "html",
+      "text"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
