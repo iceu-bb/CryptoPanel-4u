@@ -6,8 +6,6 @@ import CoinDashboard from '../CoinDashboard';
 
 const fakeName = 'Test';
 
-// test style green-red
-
 describe('<CoinDashboard/>', () => {
   test('renders data correctly', () => {
     const { container, getByText, getByTestId } = render(
@@ -24,5 +22,22 @@ describe('<CoinDashboard/>', () => {
     expect(getByText(`${fakeDataCoinStats.PRICE}`)).toBeTruthy();
     expect(getByText(`${fakeDataCoinStats.HIGH24HOUR}`)).toBeTruthy();
     expect(getByText(`${fakeDataCoinStats.LOW24HOUR}`)).toBeTruthy();
+    expect(getByText(`(${fakeDataCoinStats.CHANGEPCT24HOUR}%)`)).toHaveStyle(
+      'color: #349e8c'
+    );
+  });
+  test('renders red color when percentage change is below 0', () => {
+    const { container, getByText } = render(
+      <LanguageProvider>
+        <CoinDashboard
+          coin={{ ...fakeDataCoinStats, CHANGEPCT24HOUR: -5 }}
+          name={fakeName}
+        />
+      </LanguageProvider>
+    );
+    expect(container).toBeTruthy();
+    expect(getByText(`(-${fakeDataCoinStats.CHANGEPCT24HOUR}%)`)).toHaveStyle(
+      'color: #D94064'
+    );
   });
 });

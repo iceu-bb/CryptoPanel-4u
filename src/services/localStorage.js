@@ -1,18 +1,28 @@
 import { getCoinList, getAllCoins } from './cryptoApi';
 
 export const getCoins = async () => {
-  (await !localStorage.getItem('top100')) && (await set100TopCoins());
+  (await !localStorage.getItem('coins')) && (await setListOfAllCoins());
   const data = await JSON.parse(localStorage.getItem('coins'));
   return data;
 };
 
 export const getTop100Coins = async () => {
-  (await !localStorage.getItem('coins')) && (await setListOfAllCoins());
+  (await !localStorage.getItem('top100')) && (await set100TopCoins());
   const data = await JSON.parse(localStorage.getItem('top100'));
   return data;
 };
 
-const set100TopCoins = async () => {
+export const setListOfAllCoins = async () => {
+  const array = [];
+  await getAllCoins().then(({ Data }) => {
+    Object.entries(Data).forEach(([key, val]) => {
+      array.push(val.FullName);
+    });
+  });
+  localStorage.setItem('coins', JSON.stringify(array));
+};
+
+export const set100TopCoins = async () => {
   const top100Array = [];
   await getCoinList(0).then(({ Data }) => {
     Object.entries(Data).forEach(([key, val]) => {
@@ -21,16 +31,6 @@ const set100TopCoins = async () => {
     });
   });
   localStorage.setItem('top100', JSON.stringify(top100Array));
-};
-
-const setListOfAllCoins = async () => {
-  const array = [];
-  await getAllCoins().then(({ Data }) => {
-    Object.entries(Data).forEach(([key, val]) => {
-      array.push(val.FullName);
-    });
-  });
-  localStorage.setItem('coins', JSON.stringify(array));
 };
 
 // refresh Data in LocalStorage after 10 Days

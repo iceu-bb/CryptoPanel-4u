@@ -38,6 +38,7 @@ describe('<MainContainer/>', () => {
         getByText(coinListData.Data[2].DISPLAY.USD.PRICE)
       ).toBeInTheDocument()
     ]);
+    expect(refreshData).toHaveBeenCalledTimes(1);
     expect(queryByTestId('header-test')).toBeInTheDocument();
     expect(queryByTestId('loader-test')).not.toBeInTheDocument();
   });
